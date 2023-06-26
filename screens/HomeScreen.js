@@ -1,11 +1,12 @@
 import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
+import ScreenWrapper from "../components/screenWrapper";
 
 function HomeScreen() {
   return (
-    <SafeAreaView>
+    <ScreenWrapper>
       <Text>HomeScreen</Text>
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }
 export default HomeScreen;
