@@ -11,6 +11,8 @@ import ScreenWrapper from "../components/screenWrapper";
 import { colors } from "../theme";
 import randomImage from "../asset/randomImage";
 import { ScrollView } from "react-native";
+import EmptyList from "../components/emptyList";
+import { useNavigation } from "@react-navigation/native";
 var items = [
   {
     id: 1,
@@ -33,8 +35,9 @@ var items = [
     country: "America",
   },
 ];
-
 function HomeScreen() {
+  const navigation = useNavigation();
+
   return (
     <ScreenWrapper className="flex-1 px-4">
       <View className="flex-row justify-between items-center">
@@ -53,7 +56,10 @@ function HomeScreen() {
           <Text className={`${colors.heading} font-bold text-xl`}>
             Recent Trips
           </Text>
-          <TouchableOpacity className="p-2 px-2 bg-white border border-gray-200 rounded-full">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("AddTrip")}
+            className="p-2 px-2 bg-white border border-gray-200 rounded-full"
+          >
             <Text>Add Trip</Text>
           </TouchableOpacity>
         </View>
@@ -62,6 +68,9 @@ function HomeScreen() {
             style={{ zIndex: 1 }}
             keyExtractor={(item) => item.id}
             data={items}
+            ListEmptyComponent={
+              <EmptyList message={"You haven't recorded any trips yet"} />
+            }
             numColumns={2}
             contentInset={{ top: 0, bottom: 30, left: 0, right: 0 }}
             contentInsetAdjustmentBehavior="automatic"
@@ -71,7 +80,7 @@ function HomeScreen() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
               return (
-                <TouchableOpacity className="bg-white p-3 rounded-2xl mb-3 shaodw-sm justify-center">
+                <TouchableOpacity className="bg-white p-3 rounded-2xl mb-3 shadow-md justify-center">
                   <View>
                     <Image source={randomImage()} className="w-36 h-36 mb-2" />
                     <Text className={`${colors.heading} font-bold mx-auto`}>
