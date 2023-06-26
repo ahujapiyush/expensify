@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import AppNavigation from "./navigation/AppNavigation.js";
+import AppNavigation from "./navigation/appNavigation.js";
 function App() {
   return (
     <SafeAreaView style={styles.container}>

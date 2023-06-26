@@ -5,7 +5,7 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <View>
-        <Text> textInComponent </Text>
+        <Text> Login Screen </Text>
       </View>
     );
   }

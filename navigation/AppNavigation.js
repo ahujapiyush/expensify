@@ -9,9 +9,8 @@ const Stack = createNativeStackNavigator();
 function AppNavigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          //diable header heading
           options={{ headerShown: false }}
           name="Home"
           component={HomeScreen}
